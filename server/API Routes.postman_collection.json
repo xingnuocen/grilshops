@@ -1,0 +1,310 @@
+{
+	"info": {
+		"_postman_id": "6a3c0c8b-be46-445b-9441-ab03c009186c",
+		"name": "Seb REST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Topics",
+			"item": [
+				{
+					"name": "Get an array of all topics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/topics/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"topics",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single topic (by ID)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/topics/5e2df92a85244e3cbf21bc04",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"topics",
+								"5e2df92a85244e3cbf21bc04"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a single topic (by ID)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/topics/5e2df92a85244e3cbf21bc04",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"topics",
+								"5e2df92a85244e3cbf21bc04"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a single topic (by ID)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\"  : \"I updated this title\", \n\t\"content\": \"I updated this content\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/topics/5e2df92a85244e3cbf21bc04",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"topics",
+								"5e2df92a85244e3cbf21bc04"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new topic",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"authoredBy\": \"5e2dfaf1c381febcbfc2278c\",\n\t\"title\"     : \"I updated this title\", \n\t\"content\"   : \"I updated this content\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/topics/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"topics",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "Get an array of all comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/comments/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an array of all comments for a given topic",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/comments?forTopic=5e2df92a2675e191d9f50942",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments"
+							],
+							"query": [
+								{
+									"key": "forTopic",
+									"value": "5e2df92a2675e191d9f50942"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single comment (by ID)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/comments/5e2df92ada6059b1ff3d2e41",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments",
+								"5e2df92ada6059b1ff3d2e41"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a single comment (by ID)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/comments/5e2df92ada6059b1ff3d2e40",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments",
+								"5e2df92ada6059b1ff3d2e40"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a single comment (by ID)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"content\": \"I updated the content for this comment\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/comments/5e2df92ada6059b1ff3d2e40",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments",
+								"5e2df92ada6059b1ff3d2e40"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"authoredBy\": \"5e2dfaf1c381febcbfc2278c\",\n\t\"forTopic\"  : \"5e2df92ada6059b1ff3d2e39\", \n\t\"content\"   : \"Content for my new Comment\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
