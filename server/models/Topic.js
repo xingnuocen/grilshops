@@ -1,6 +1,5 @@
 const mongoose  = require('mongoose');
 const validator = require('validator');
-const User      = require('./User').User;
 
 const SchemeConfig = {timestamps: true, skipVersioning: true};
 const TopicSchema  = new mongoose.Schema({

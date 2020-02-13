@@ -2,8 +2,7 @@ const createError    = require('http-errors');
 const express        = require('express');
 const cookieParser   = require('cookie-parser');
 const logger         = require('morgan');
-const topicsRouter   = require('./routes/topics');
-const commentsRouter = require('./routes/comments');
+//const topicsRouter   = require('./routes/topics');
 const productsRouter = require('./routes/products');
 const app            = express();
 const mongoose       = require('mongoose');
@@ -38,8 +37,7 @@ app.use(function(req, res, next) {
 
 // Add routers as application middleware
 // Note 2 routers, one for each data resource (topics and comments)
-app.use('/topics',   topicsRouter);
-app.use('/comments', commentsRouter);
+//app.use('/topics',   topicsRouter);
 app.use('/products', productsRouter);
 
 // catch 404 and forward to error handler
