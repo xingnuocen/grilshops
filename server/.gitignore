@@ -60,6 +60,4 @@ typings/
 # next.js build output
 .next
 
-find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
-
 .DS_Store
