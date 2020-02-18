@@ -3,7 +3,7 @@ import urlToCurrentDomain from '../lib/urlToCurrentDomain';
 import {Link}             from '@reach/router';
 import * as Config        from '../config.json'
 
-class Topics extends React.Component {
+class Cakes extends React.Component {
 
   // #######################################################
   // # Local state
@@ -17,45 +17,46 @@ class Topics extends React.Component {
 
   render() {
 
-    if (!this.state.topics && this.state.topicsLoaded === true) {
+    if (!this.state.cakes && this.state.cakesLoaded === true) {
       return (
-        <p>Error loading topics. Try again later.</p>
+        <p>Error loading cakes. Try again later.</p>
       );
-    } else if (!this.state.topics) {
+    } else if (!this.state.cakes) {
       return (
-        <p>Loading topics...</p>
+        <p>Loading cakes...</p>
       );
-    } else if (this.state.topics.length === 0) {
+    } else if (this.state.cakes.length === 0) {
       return (
-        <p>Sorry, no topics are available</p>
+        <p>Sorry, no cakes are available</p>
       );
     } else {
       return (
         <div>
-          <h1>Topics</h1>
+          <h1>All Cakes in the database</h1>
           <ul>
-            {this.state.topics.map(topic => (
-              <li key={`topic_${topic._id}`}><Link to={`/topic/${topic._id}`}>{topic.title}</Link></li>
+            {this.state.cakes.map(cake => (
+              <li key={`cake_${cake._id}`}><Link to={`/cake/${cake._id}`}>{cake.title}</Link></li>
             ))}
           </ul>
-          <p><Link to='/add-topic'>Add a new Topic</Link></p>
+          <p><Link to='/add-cake'>Add a new Cake</Link></p>
         </div>
       )
     }
   }
 
   componentDidMount() {
-    fetch(urlToCurrentDomain(Config.topicsAPI))
+    fetch(urlToCurrentDomain(Config.cakesAPI))
       .then (res  => res.json())
       .then (json => {
-        this.setState({topics       : json});
-        this.setState({topicsLoaded : true});
+        this.setState({cakes       : json});
+        this.setState({cakesLoaded : true});
       })
       .catch(err => {
-        this.setState({topicsLoaded: true});
+        this.setState({cakesLoaded: true});
       });
   }
 
 }
 
-export default Topics;
+export default Cakes;
+

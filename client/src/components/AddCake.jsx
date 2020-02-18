@@ -3,16 +3,14 @@ import {navigate, Link}   from '@reach/router';
 import urlToCurrentDomain from '../lib/urlToCurrentDomain';
 import * as Config        from '../config.json'
 
-class AddTopic extends React.Component {
+class AddCake extends React.Component {
 
   // #######################################################
   // # Local state
   // #######################################################
 
   state = {
-    authoredBy: '5e2dfaf1c381febcbfc2278c', // Better ways to handle this, obviously!
-    title     : '',
-    content   : ''
+    title     : ''
   }
 
   // #######################################################
@@ -25,39 +23,39 @@ class AddTopic extends React.Component {
       return (
         <div>
           <h1>Error</h1>
-          <p>Sorry, there was an error creating the topic. The error was: {this.state.reportedError || 'Unknown'}</p>
+          <p>Sorry, there was an error creating the cake. The error was: {this.state.reportedError || 'Unknown'}</p>
           <a href='#' onClick={this.resetForRetry.bind(this)}>Try again</a>&nbsp;|&nbsp;
-          <Link to='/'>Back to All Topics</Link>
+          <Link to='/'>Back to All cakes</Link>
         </div>
       );
     } else if (this.state.processingAdd) {
       return (
-        <div>Adding topic...</div>
+        <div>Adding cake...</div>
       );
     } else {
       return (
         <div>
-          <h1>Add a Topic</h1>
+          <h1>Add a cake</h1>
           <form onSubmit={this.handleSubmit.bind(this)}>
 
             <div>
-              <label>Topic Title:
+              <label>cake Title:
                 <input type='' value={this.state.title} onChange={this.handleTitleUpdate.bind(this)} />
               </label>
             </div>
 
-            <div>
-              <label>Topic Content:
+            {/* <div>
+              <label>cake Content:
                 <textarea value={this.state.content} onChange={this.handleContentUpdate.bind(this)}></textarea>
               </label>
-            </div>
+            </div> */}
 
             <div>
-              <input type='submit' value='Add Topic' />
+              <input type='submit' value='Add Cake' />
             </div>
 
           </form>
-          <Link to='/'>Back to All Topics</Link>
+          <Link to='/'>Back to All cakes</Link>
         </div>
       );
     }
@@ -77,7 +75,7 @@ class AddTopic extends React.Component {
     e.preventDefault();
 
     // Perform a POST call for the new data
-    fetch(urlToCurrentDomain(`${Config.topicsAPI}`), {
+    fetch(urlToCurrentDomain(`${Config.cakesAPI}`), {
       method : 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -94,7 +92,7 @@ class AddTopic extends React.Component {
         }
         return res.json();
       })
-      .then (json => navigate(`/topic/${json._id}`))
+      .then (json => navigate(`/cake/${json._id}`))
       .catch(err => {
         this.setState({reportedError: err.message || 'Unknown'});
       })
@@ -106,9 +104,9 @@ class AddTopic extends React.Component {
   }
 
   componentDidMount() {
-    // this.getComments(this.props.topicID);
+    // this.getComments(this.props.cakeID);
   }
 
 }
 
-export default AddTopic;
+export default AddCake;
