@@ -12,7 +12,7 @@ const Cake   = require('../models/Cake').Cake;
  *  D   DELETE  /Cakes/:id     Delete a single Cake, by ID
  */
 
-// GET an array of all Cakes
+// GET an array of all Cakes change
 router.get('/', (req, res) => {
     return mongoose
       .model('Cake')
